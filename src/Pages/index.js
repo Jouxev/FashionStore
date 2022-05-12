@@ -1,3 +1,3 @@
 import { LandingPage } from "./LandingPage";
-
-export { LandingPage };
+import { AuthPage } from "./AuthPage";
+export { LandingPage, AuthPage };

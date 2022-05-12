@@ -8,6 +8,7 @@ import { tablet } from "../responsive";
 
 import { useState } from "react";
 import { Sidebar } from ".";
+import { useNavigate } from "react-router-dom";
 const Container = styled.div`
   display: flex;
 `;
@@ -105,6 +106,7 @@ const Badge = styled.span`
 
 export const Navbar = () => {
   const [menuOpened, setmenuOpened] = useState(false);
+  let navigate = useNavigate();
   return (
     <Container>
       <Left>
@@ -112,7 +114,7 @@ export const Navbar = () => {
       </Left>
       <Center>
         <Menu>
-          <MenuItem>Home </MenuItem>
+          <MenuItem onClick={() => navigate("/")}>Home </MenuItem>
           <MenuItem>Shop</MenuItem>
           <MenuItem>Products</MenuItem>
           <MenuItem>Contact</MenuItem>
@@ -123,7 +125,7 @@ export const Navbar = () => {
           <RiSearchLine />
         </IconContainer>
         <IconContainer>
-          <AiOutlineUser />
+          <AiOutlineUser onClick={() => navigate("/signin")} />
         </IconContainer>
         <IconContainer>
           <Badge> 0</Badge>
