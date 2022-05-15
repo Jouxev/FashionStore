@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { tablet } from "../responsive";
 
@@ -38,14 +39,14 @@ const MenuItem = styled.li`
 `;
 
 export const Sidebar = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <Wrapper>
         <Menu>
-          <MenuItem>Home </MenuItem>
-          <MenuItem>Shop</MenuItem>
-          <MenuItem>Products</MenuItem>
-          <MenuItem>Contact</MenuItem>
+          <MenuItem onClick={() => navigate("/")}>Home </MenuItem>
+          <MenuItem onClick={() => navigate("/shop")}>Shop</MenuItem>
+          <MenuItem onClick={() => navigate("/contact")}>Contact</MenuItem>
         </Menu>
       </Wrapper>
     </Container>

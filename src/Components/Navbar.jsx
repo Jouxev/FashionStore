@@ -116,8 +116,7 @@ export const Navbar = () => {
         <Menu>
           <MenuItem onClick={() => navigate("/")}>Home </MenuItem>
           <MenuItem onClick={() => navigate("/shop")}>Shop</MenuItem>
-          <MenuItem>Products</MenuItem>
-          <MenuItem>Contact</MenuItem>
+          <MenuItem onClick={() => navigate("/contact")}>Contact</MenuItem>
         </Menu>
       </Center>
       <Right>

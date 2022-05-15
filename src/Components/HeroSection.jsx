@@ -54,6 +54,8 @@ const Button = styled.button`
   background: var(--veryDark);
   color: var(--light);
   cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
   margin-top: 4rem;
   &:hover {
     opacity: 0.8;

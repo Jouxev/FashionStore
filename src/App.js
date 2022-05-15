@@ -4,6 +4,7 @@ import { AuthPage, LandingPage, ShopPage } from "./Pages";
 import { Anouncement } from "./Components";
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import { ProductPage } from "./Pages/ProductPage";
 const Container = styled.div``;
 
 export const App = () => {
@@ -17,6 +18,7 @@ export const App = () => {
           <Routes>
             <Route index path="/" element={<LandingPage />} />
             <Route index path="/shop" element={<ShopPage />} />
+            <Route index path="/product/:id" element={<ProductPage />} />
             <Route path="/signin" element={<AuthPage auth="signin" />} />
             <Route path="/register" element={<AuthPage auth="register" />} />
           </Routes>

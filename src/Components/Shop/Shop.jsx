@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { mobile, tablet } from "../../responsive";
 import { ShopItem } from "./ShopItem";
-
+import axios from "axios";
+import { API_URI } from "../../config";
 const Container = styled.div`
   display: flex;
   padding: 2rem;
@@ -60,35 +62,47 @@ const Label = styled.label`
 `;
 const FilterOption = styled.option``;
 export const Shop = () => {
+  const [product, setProduct] = useState([]);
+
+  const getProduct = async () => {
+    await axios
+      .get(`${API_URI}api/product`)
+      .then((data) => setProduct(data.data));
+  };
+
+  useEffect(() => {
+    getProduct();
+  }, []);
   return (
     <Container>
       <Title> Our Products </Title>
       <Sorting>
         <Label> Filter Product: </Label>
         <Filter>
-          <FilterOption selected>All Product </FilterOption>
+          <FilterOption defaultValue>All Product </FilterOption>
           <FilterOption>New Arrivals</FilterOption>
           <FilterOption>Top Rating </FilterOption>
           <FilterOption>Best Sellers</FilterOption>
         </Filter>
         <Filter>
-          <FilterOption selected>Price</FilterOption>
+          <FilterOption defaultValue>Price</FilterOption>
           <FilterOption>Lowest Price</FilterOption>
           <FilterOption>Hightest Price </FilterOption>
         </Filter>
       </Sorting>
       <ShopItemContainer>
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
+        {product.length > 0
+          ? product.map((item, index) => <ShopItem item={item} key={index} />)
+          : "No product Found"}
+        {product.length > 0
+          ? product.map((item, index) => <ShopItem item={item} key={index} />)
+          : "No product Found"}
+        {product.length > 0
+          ? product.map((item, index) => <ShopItem item={item} key={index} />)
+          : "No product Found"}
+        {product.length > 0
+          ? product.map((item, index) => <ShopItem item={item} key={index} />)
+          : "No product Found"}
       </ShopItemContainer>
     </Container>
   );

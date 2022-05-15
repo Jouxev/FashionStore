@@ -1,10 +1,11 @@
 import { BsHeart, BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { mobile } from "../../responsive";
 
 const Container = styled.div`
   margin: 1rem 0rem;
-  height: 360px;
+  height: fit-content;
   width: 220px;
   cursor: pointer;
   &:hover {
@@ -63,7 +64,7 @@ const Image = styled.img`
 const Title = styled.h1`
   font-weight: 400;
   color: var(--veryDark);
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   text-align: center;
 `;
 const Price = styled.h2`
@@ -82,34 +83,33 @@ const Rating = styled.div`
       transform: scale(1.4);
     }
   }
+  margin-bottom: 20px;
 `;
 const Review = styled.span`
   font-size: 0.8rem;
   color: var(--dark);
   margin-left: 5px;
 `;
-export const ShopItem = () => {
+export const ShopItem = (props) => {
+  const navigate = useNavigate();
   return (
-    <Container>
+    <Container onClick={() => navigate(`/product/${props.item._id}`)}>
       <ImageContainer>
         <Discount>20 %</Discount>
         <Like>
           <BsHeart />
         </Like>
-        <Image
-          src="https://images.riverisland.com/is/image/RiverIsland/black-slim-fit-high-neck-t-shirt_394005_rollover?$ProductListingPortrait$"
-          alt=""
-        />
+        <Image src={props.item.images[0].url} alt={props.item.title} />
       </ImageContainer>
-      <Title> Black T-Shirt </Title>
-      <Price> 49.99 $ </Price>
+      <Title> {props.item.title} </Title>
+      <Price> {props.item.price} $ </Price>
       <Rating>
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarHalf />
-        <BsStar />
-        <Review> (9) Reviews </Review>
+        {props.item.rating.length > 0 ? <BsStarFill /> : <BsStar />}
+        {props.item.rating.length > 0 ? <BsStarFill /> : <BsStar />}
+        {props.item.rating.length > 0 ? <BsStarFill /> : <BsStar />}
+        {props.item.rating.length > 0 ? <BsStarFill /> : <BsStar />}
+        {props.item.rating.length > 0 ? <BsStarFill /> : <BsStar />}
+        <Review> ({props.item.rating.length} reviews)</Review>
       </Rating>
     </Container>
   );
