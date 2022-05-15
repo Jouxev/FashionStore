@@ -9,9 +9,6 @@ const Container = styled.div`
 export const LandingPage = () => {
   return (
     <Container>
-      <Anouncement
-        text={"Big discount Today 50% using Promo code (fiftyOFF)"}
-      />
       <Navbar />
       <HeroSection />
     </Container>

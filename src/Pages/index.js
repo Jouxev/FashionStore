@@ -1,3 +1,4 @@
 import { LandingPage } from "./LandingPage";
 import { AuthPage } from "./AuthPage";
-export { LandingPage, AuthPage };
+import { ShopPage } from "./ShopPage";
+export { LandingPage, AuthPage, ShopPage };

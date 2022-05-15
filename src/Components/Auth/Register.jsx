@@ -92,10 +92,10 @@ export const Register = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    fullName == "" ? setFullNameError(true) : setFullNameError(false);
-    email == "" ? setEmailError(true) : setEmailError(false);
-    password == "" ? setPasswordError(true) : setPasswordError(false);
-    if (fullName == "" || email == "" || password == "") {
+    fullName === "" ? setFullNameError(true) : setFullNameError(false);
+    email === "" ? setEmailError(true) : setEmailError(false);
+    password === "" ? setPasswordError(true) : setPasswordError(false);
+    if (fullName === "" || email === "" || password === "") {
       return;
     }
   };

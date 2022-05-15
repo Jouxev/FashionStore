@@ -110,12 +110,12 @@ export const Navbar = () => {
   return (
     <Container>
       <Left>
-        <Logo> Kazy Store</Logo>
+        <Logo onClick={() => navigate("/")}> Kazy Store</Logo>
       </Left>
       <Center>
         <Menu>
           <MenuItem onClick={() => navigate("/")}>Home </MenuItem>
-          <MenuItem>Shop</MenuItem>
+          <MenuItem onClick={() => navigate("/shop")}>Shop</MenuItem>
           <MenuItem>Products</MenuItem>
           <MenuItem>Contact</MenuItem>
         </Menu>

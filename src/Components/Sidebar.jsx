@@ -8,6 +8,7 @@ const Container = styled.div`
   position: fixed;
   display: none;
   transition: 0.5s ease-out all;
+  z-index: 8 !important;
   ${tablet({
     display: "block",
   })}

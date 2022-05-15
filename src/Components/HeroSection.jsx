@@ -5,6 +5,7 @@ import { BsInstagram } from "react-icons/bs";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { IoLogoGoogleplus } from "react-icons/io";
 import { mobile, tablet } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -96,6 +97,7 @@ const Image = styled.img`
 `;
 
 export const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <Right>
@@ -104,7 +106,7 @@ export const HeroSection = () => {
           A specialist label creating luxury essentials. Ethically crafted with
           an unwavering commitment to exceptional quality{" "}
         </Desc>
-        <Button> Shop Now </Button>
+        <Button onClick={() => navigate("/shop")}> Shop Now </Button>
         <SocialContainer>
           <SiFacebook />
           <BsInstagram />

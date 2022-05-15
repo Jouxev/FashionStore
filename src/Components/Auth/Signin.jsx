@@ -90,9 +90,9 @@ export const Signin = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    email == "" ? setEmailError(true) : setEmailError(false);
-    password == "" ? setPasswordError(true) : setPasswordError(false);
-    if (email == "" || password == "") {
+    email === "" ? setEmailError(true) : setEmailError(false);
+    password === "" ? setPasswordError(true) : setPasswordError(false);
+    if (email === "" || password === "") {
       return;
     }
   };
